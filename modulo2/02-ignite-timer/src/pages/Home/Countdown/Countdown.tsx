@@ -23,7 +23,10 @@ export function Coundown() {
 
     if (activeCycle) {
       intervalId = setInterval(() => {
-        const diffSec = differenceInSeconds(new Date(), activeCycle.startDate)
+        const diffSec = differenceInSeconds(
+          new Date(),
+          new Date(activeCycle.startDate)
+        )
 
         if (diffSec >= totalSeconds) {
           markCurrentCycleAsFinished()
