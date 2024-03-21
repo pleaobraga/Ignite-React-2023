@@ -1,23 +1,37 @@
 import { Logo } from './Logo'
-import { Search } from 'lucide-react'
-import { MainNavigation } from './MainNavigation/MainNavigation'
+import { Cog, LifeBuoy, Search } from 'lucide-react'
+import { MainNavigation } from './MainNavigation'
+import { NavItem } from './NavItem'
+import { UsedSpaceWidget } from './UsedSpaceWidget'
+import { Profile } from './Profile'
+import { Input } from '../Input/Input'
 
 export function Sidebar() {
   return (
-    <aside className="space-y-6 border-r border-zinc-200 px-5 py-8">
+    <aside className="flex flex-col gap-6 border-r border-zinc-200 px-5 py-8">
       <Logo />
 
-      <div className="mx-1 flex w-full items-center gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm">
-        <Search className="h-5 w-5 text-zinc-500" />
-
-        <input
-          type="text"
-          placeholder="Search"
-          className="flex-1 border-0 bg-transparent p-0 text-zinc-900 placeholder-zinc-600 focus:outline-none"
-        />
-      </div>
+      <Input.Root>
+        <Input.Prefix>
+          <Search className="h-5 w-5 text-zinc-500" />
+        </Input.Prefix>
+        <Input.Control type="text" placeholder="Search" />
+      </Input.Root>
 
       <MainNavigation />
+
+      <div className="mt-auto flex flex-col gap-6">
+        <nav className="space-y-0.5">
+          <NavItem title="Support" Icon={LifeBuoy} link="" />
+          <NavItem title="Settings" Icon={Cog} link="" />
+        </nav>
+
+        <UsedSpaceWidget />
+
+        <div className="h-px bg-zinc-200"></div>
+
+        <Profile />
+      </div>
     </aside>
   )
 }
