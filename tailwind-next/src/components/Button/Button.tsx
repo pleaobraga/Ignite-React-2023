@@ -1,12 +1,29 @@
-import React from 'react'
+import { ComponentProps } from 'react'
+import { tv, VariantProps } from 'tailwind-variants'
 
-interface ButtonProps {
-  onClick: () => void
-  text: string
+const button = tv({
+  base: [
+    'rounded-lg px-4 py-2 text-sm font-semibold shadow-sm outline-none',
+    'focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2',
+    'active:opacity-80',
+  ],
+  variants: {
+    variant: {
+      primary: 'bg-violet-600 text-white hover:bg-violet-700',
+      ghost: 'rounded-md p-2 hover:bg-zinc-50 shadow-none text-zinc-500',
+      outline: 'border border-zinc-300 text-zinc-700 hover:bg-zinc-50',
+    },
+  },
+
+  defaultVariants: {
+    variant: 'primary',
+  },
+})
+
+interface ButtonProps
+  extends ComponentProps<'button'>,
+    VariantProps<typeof button> {}
+
+export function Button({ variant, className, ...props }: ButtonProps) {
+  return <button {...props} className={button({ variant, className })} />
 }
-
-const Button: React.FC<ButtonProps> = ({ onClick, text }) => {
-  return <button onClick={onClick}>{text}</button>
-}
-
-export default Button
