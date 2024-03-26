@@ -10,6 +10,10 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
   plugins: ['react-refresh', 'simple-import-sort' ],
   rules: {
     'react-refresh/only-export-components': [
