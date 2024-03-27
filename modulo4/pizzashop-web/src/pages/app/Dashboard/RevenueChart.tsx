@@ -13,6 +13,7 @@ import {
   XAxis,
   YAxis,
   Line,
+  CartesianGrid,
 } from 'recharts'
 
 const data = [
@@ -28,7 +29,7 @@ const data = [
   { date: '10/21', revenue: 300 },
 ]
 
-function RevenueChart() {
+export function RevenueChart() {
   return (
     <Card className="col-span-6">
       <CardHeader className="flex-row items-center justify-between pb-8">
@@ -58,6 +59,9 @@ function RevenueChart() {
                 })
               }
             />
+
+            <CartesianGrid vertical={false} className="stroke-muted" />
+
             <Line
               type="linear"
               strokeWidth={2}
@@ -70,5 +74,3 @@ function RevenueChart() {
     </Card>
   )
 }
-
-export default RevenueChart

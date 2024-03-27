@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Utensils } from 'lucide-react'
 
-function DayOrderAmountCard() {
+export function DayOrderAmountCard() {
   return (
     <Card>
       <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
@@ -18,5 +18,3 @@ function DayOrderAmountCard() {
     </Card>
   )
 }
-
-export default DayOrderAmountCard

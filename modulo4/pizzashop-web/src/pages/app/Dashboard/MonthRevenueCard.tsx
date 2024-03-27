@@ -1,7 +1,7 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { DollarSign } from "lucide-react"
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { DollarSign } from 'lucide-react'
 
-function MonthRevenueCard() {
+export function MonthRevenueCard() {
   return (
     <Card>
       <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
@@ -20,5 +20,3 @@ function MonthRevenueCard() {
     </Card>
   )
 }
-
-export default MonthRevenueCard
