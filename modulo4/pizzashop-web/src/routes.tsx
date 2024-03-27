@@ -5,13 +5,17 @@ import { DashboardPage } from '@/pages/app/Dashboard'
 import { SignInPage } from '@/pages/auth/SignIn'
 import { AppLayout } from '@/pages/layouts/App'
 import { AuthLayout } from '@/pages/layouts/Auth'
-import { SignUpPage } from './pages/auth/SignUp'
+import { SignUpPage } from '@/pages/auth/SignUp'
+import { Orders } from '@/pages/app/Orders/Orders'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
-    children: [{ path: '/', element: <DashboardPage /> }],
+    children: [
+      { path: '/', element: <DashboardPage /> },
+      { path: '/orders', element: <Orders /> },
+    ],
   },
 
   {
