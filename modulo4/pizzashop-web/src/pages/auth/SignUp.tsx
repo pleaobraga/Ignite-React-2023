@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Link, useNavigate } from 'react-router-dom'
+import { registerRestaurant } from '@/api/register-restaurant'
+import { useMutation } from '@tanstack/react-query'
 
 const SignUpForm = z.object({
   restaurantName: z.string(),
@@ -25,12 +27,23 @@ export function SignUp() {
   } = useForm<SignUpForm>()
   const navigate = useNavigate()
 
+  const { mutateAsync: registerRestaurantFn } = useMutation({
+    mutationFn: registerRestaurant,
+  })
+
   async function handleSighIn(data: SignUpForm) {
     try {
+      await registerRestaurantFn({
+        email: data.email,
+        managerName: data.managerName,
+        restaurantName: data.restaurantName,
+        phone: data.phone,
+      })
+
       toast.success('Restaurante cadastrado com sucesso!', {
         action: {
           label: 'Login',
-          onClick: () => navigate('/sign-in'),
+          onClick: () => navigate(`/sign-in?email=${data.email}`),
         },
       })
     } catch {
