@@ -1,5 +1,6 @@
 import { getMonthRevenue } from '@/api/get-month-revenue'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { MetricCardSkeleton } from '@/src/pages/app/dashboard/metric-card-skeleton'
 import { useQuery } from '@tanstack/react-query'
 import { DollarSign } from 'lucide-react'
 
@@ -18,7 +19,7 @@ export function MonthRevenueCard() {
         <DollarSign className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent className="space-y-1">
-        {monthRevenue && (
+        {monthRevenue ? (
           <>
             <span className="text-2xl font-bold tracking-tight">
               {(monthRevenue.receipt / 100).toLocaleString('pt-BR', {
@@ -44,6 +45,8 @@ export function MonthRevenueCard() {
               )}
             </p>
           </>
+        ) : (
+          <MetricCardSkeleton />
         )}
       </CardContent>
     </Card>
