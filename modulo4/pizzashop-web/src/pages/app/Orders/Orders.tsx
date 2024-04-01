@@ -1,3 +1,10 @@
+import { useQuery } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet-async'
+import { useSearchParams } from 'react-router-dom'
+import { z } from 'zod'
+
+import { getOrders } from '@/api/get-orders'
+import { Pagination } from '@/components/Pagination'
 import {
   Table,
   TableBody,
@@ -5,14 +12,9 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Helmet } from 'react-helmet-async'
-import { OrderTableRow } from './OrderTableRow'
+
 import { OrderFilters } from './OrderFilters'
-import { Pagination } from '@/components/Pagination'
-import { useQuery } from '@tanstack/react-query'
-import { getOrders } from '@/api/get-orders'
-import { useSearchParams } from 'react-router-dom'
-import { z } from 'zod'
+import { OrderTableRow } from './OrderTableRow'
 import { OrderTableSkeleton } from './OrderTableSkeleton'
 
 export function Orders() {

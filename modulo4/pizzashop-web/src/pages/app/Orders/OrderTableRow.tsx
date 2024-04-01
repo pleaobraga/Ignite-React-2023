@@ -1,18 +1,20 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+import { ArrowRight, Search, X } from 'lucide-react'
+import { useState } from 'react'
+
+import { approveOrder } from '@/api/approve-order.ts'
+import { cancelOrder } from '@/api/cancel-order'
+import { deliverOrder } from '@/api/deliver-order.ts'
+import { dispatchOrder } from '@/api/dispatch-order.ts'
+import { GetOrdersResponse } from '@/api/get-orders'
+import { OrderStatus } from '@/components/OrderStatus'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import { TableCell, TableRow } from '@/components/ui/table'
-import { ArrowRight, Search, X } from 'lucide-react'
+
 import { OrderDetails } from './OrderDetails'
-import { OrderStatus } from '@/components/OrderStatus'
-import { formatDistanceToNow } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
-import { useState } from 'react'
-import { cancelOrder } from '@/api/cancel-order'
-import { GetOrdersResponse } from '@/api/get-orders'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { approveOrder } from '@/api/approve-order.ts'
-import { deliverOrder } from '@/api/deliver-order.ts'
-import { dispatchOrder } from '@/api/dispatch-order.ts'
 
 interface Order {
   orderId: string

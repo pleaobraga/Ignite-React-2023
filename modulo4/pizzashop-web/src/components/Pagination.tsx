@@ -1,10 +1,11 @@
-import { Button } from './ui/button'
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
 } from 'lucide-react'
+
+import { Button } from './ui/button'
 
 interface PaginationProps {
   pageIndex: number

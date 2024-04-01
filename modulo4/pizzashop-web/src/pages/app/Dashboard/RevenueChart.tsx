@@ -1,3 +1,19 @@
+import { useQuery } from '@tanstack/react-query'
+import { subDays } from 'date-fns'
+import { Loader2 } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import { DateRange } from 'react-day-picker'
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from 'recharts'
+import colors from 'tailwindcss/colors'
+
+import { getDailyRevenueInPeriod } from '@/api/get-daily-revenue-in-period'
 import {
   Card,
   CardContent,
@@ -5,24 +21,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import colors from 'tailwindcss/colors'
-
-import {
-  ResponsiveContainer,
-  LineChart,
-  XAxis,
-  YAxis,
-  Line,
-  CartesianGrid,
-} from 'recharts'
-import { getDailyRevenueInPeriod } from '@/api/get-daily-revenue-in-period'
-import { useQuery } from '@tanstack/react-query'
-import { subDays } from 'date-fns'
-import { useState, useMemo } from 'react'
-import { Label } from '@/components/ui/label'
 import { DateRangePicker } from '@/components/ui/date-range-picker'
-import { DateRange } from 'react-day-picker'
-import { Loader2 } from 'lucide-react'
+import { Label } from '@/components/ui/label'
 
 export function RevenueChart() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({

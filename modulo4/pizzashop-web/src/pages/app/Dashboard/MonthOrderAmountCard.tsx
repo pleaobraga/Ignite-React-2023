@@ -1,8 +1,9 @@
-import { getMonthOrdersAmount } from '@/api/get-month-orders-amount'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { MetricCardSkeleton } from '@/src/pages/app/dashboard/metric-card-skeleton'
 import { useQuery } from '@tanstack/react-query'
 import { Utensils } from 'lucide-react'
+
+import { getMonthOrdersAmount } from '@/api/get-month-orders-amount'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { MetricCardSkeleton } from '@/src/pages/app/dashboard/metric-card-skeleton'
 
 export function MonthOrdersAmountCard() {
   const { data: monthOrdersAmount } = useQuery({

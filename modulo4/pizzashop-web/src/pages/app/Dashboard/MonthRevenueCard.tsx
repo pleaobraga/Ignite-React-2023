@@ -1,8 +1,9 @@
-import { getMonthRevenue } from '@/api/get-month-revenue'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { MetricCardSkeleton } from '@/src/pages/app/dashboard/metric-card-skeleton'
 import { useQuery } from '@tanstack/react-query'
 import { DollarSign } from 'lucide-react'
+
+import { getMonthRevenue } from '@/api/get-month-revenue'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { MetricCardSkeleton } from '@/src/pages/app/dashboard/metric-card-skeleton'
 
 export function MonthRevenueCard() {
   const { data: monthRevenue } = useQuery({

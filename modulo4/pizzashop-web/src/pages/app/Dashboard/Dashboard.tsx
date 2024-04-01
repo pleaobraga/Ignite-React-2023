@@ -1,10 +1,11 @@
 import { Helmet } from 'react-helmet-async'
-import { MonthRevenueCard } from './MonthRevenueCard'
-import { MonthOrdersAmountCard } from './MonthOrderAmountCard'
+
 import { DayOrdersAmountCard } from './DayOrderAmountCard'
 import { MonthCanceledOrdersAmountCard } from './MonthCanceledOrderAmountCard'
-import { RevenueChart } from './RevenueChart'
+import { MonthOrdersAmountCard } from './MonthOrderAmountCard'
+import { MonthRevenueCard } from './MonthRevenueCard'
 import { PopularProductsChart } from './PopularProductsChart'
+import { RevenueChart } from './RevenueChart'
 
 export function Dashboard() {
   return (

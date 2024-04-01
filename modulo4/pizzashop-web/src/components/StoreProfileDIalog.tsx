@@ -1,4 +1,15 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import { z } from 'zod'
+
+import {
+  getManagedRestaurant,
+  GetManagedRestaurantResponse,
+} from '@/api/get-managed-restaurant'
+import { updateProfile } from '@/api/update-profile'
+
 import { Button } from './ui/button'
 import {
   DialogClose,
@@ -11,15 +22,6 @@ import {
 import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Textarea } from './ui/textarea'
-import {
-  GetManagedRestaurantResponse,
-  getManagedRestaurant,
-} from '@/api/get-managed-restaurant'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { updateProfile } from '@/api/update-profile'
-import { toast } from 'sonner'
 
 const storeProfileSchema = z.object({
   name: z.string().min(1),
